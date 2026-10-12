@@ -1,0 +1,202 @@
+/* Scoped homepage hero. Artwork is an eager native image, not a late CSS background. */
+.hero.hero--jakarta {
+  --hero-bg: #090a0d;
+  --hero-text: #f8f3ec;
+  --hero-soft: #e7e1de;
+  position: relative;
+  isolation: isolate;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  min-height: 0;
+}
+.hero--jakarta .hero-art {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  display: block;
+  background: var(--hero-bg);
+  z-index: -1;
+}
+.hero--jakarta .hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+.hero--jakarta .hero-art::before {
+  inset: 0;
+  z-index: 1;
+  border: 0;
+  transform: none;
+  background: linear-gradient(
+    90deg,
+    #090a0df5 0%,
+    #090a0dda 24%,
+    #090a0d94 40%,
+    #090a0d20 65%,
+    transparent 82%
+  );
+}
+.hero--jakarta .hero-art::after {
+  inset: auto;
+  left: 48%;
+  top: -24%;
+  width: 60%;
+  aspect-ratio: 1;
+  z-index: 2;
+  border: 1px solid #ff4ca72e;
+  border-radius: 50%;
+  transform: none;
+  pointer-events: none;
+}
+.hero--jakarta .hero-grid {
+  min-height: clamp(660px, 49vw, 820px);
+  display: flex;
+  align-items: center;
+}
+.hero--jakarta .hero-copy {
+  width: min(58%, 760px);
+  min-width: 0;
+  padding: 48px 0 32px;
+}
+.hero--jakarta .hero-kicker {
+  padding: 10px 12px;
+  border-color: #e7e1de66;
+  background: #090a0d66;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+}
+.hero--jakarta h1 {
+  font-size: clamp(80px, 9vw, 144px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  margin: 32px 0 20px;
+  overflow-wrap: anywhere;
+}
+.hero--jakarta h1 > span,
+.hero--jakarta h1 > em {
+  display: block;
+}
+.hero--jakarta h1 > em {
+  font-size: 0.9em;
+  margin-top: 6px;
+}
+.hero--jakarta .hero-sub {
+  max-width: 470px;
+  margin: 0 0 24px;
+  color: var(--hero-soft);
+  font-size: clamp(17px, 1.35vw, 21px);
+  line-height: 1.55;
+}
+.hero--jakarta .btn {
+  gap: 28px;
+}
+.hero--jakarta .btn span {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+.hero--jakarta .btn:focus-visible {
+  outline-color: var(--lime);
+}
+.hero--jakarta .hero-meta {
+  gap: 12px 20px;
+  margin-top: 36px;
+  color: var(--hero-text);
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.09em;
+}
+.hero--jakarta .hero-meta > span:last-child {
+  padding-left: 20px;
+  border-left: 1px solid #e7e1de66;
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .hero--jakarta .hero-copy {
+    width: 64%;
+  }
+  .hero--jakarta h1 {
+    font-size: clamp(74px, 9.2vw, 102px);
+  }
+  .hero--jakarta .hero-sub {
+    max-width: 390px;
+  }
+  .hero--jakarta .hero-meta {
+    max-width: 420px;
+  }
+  .hero--jakarta .hero-meta > span:last-child {
+    border: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 800px) {
+  .hero.hero--jakarta {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero--jakarta .hero-grid {
+    order: 1;
+    min-height: 0;
+  }
+  .hero--jakarta .hero-copy {
+    width: 100%;
+    padding: 40px 0 20px;
+  }
+  .hero--jakarta h1 {
+    font-size: clamp(60px, 15vw, 100px);
+    margin: 28px 0 20px;
+  }
+  .hero--jakarta .hero-sub {
+    max-width: 520px;
+    font-size: 17px;
+  }
+  .hero--jakarta .hero-art {
+    order: 2;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: clamp(250px, 63vw, 450px);
+    z-index: 0;
+  }
+  .hero--jakarta .hero-image {
+    object-position: 78% 65%;
+  }
+  .hero--jakarta .hero-art::before {
+    background: linear-gradient(
+      180deg,
+      var(--hero-bg),
+      transparent 28%,
+      transparent 86%,
+      #090a0d66
+    );
+  }
+  .hero--jakarta .hero-art::after {
+    display: none;
+  }
+  .hero--jakarta .hero-meta {
+    margin-top: 28px;
+  }
+  .hero--jakarta .hero-meta > span:last-child {
+    border: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 420px) {
+  .hero--jakarta .hero-kicker {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+  .hero--jakarta h1 {
+    font-size: clamp(60px, 16vw, 68px);
+  }
+  .hero--jakarta .hero-sub {
+    font-size: 16px;
+  }
+  .hero--jakarta .hero-meta {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+  }
+}

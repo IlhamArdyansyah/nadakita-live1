@@ -1,0 +1,84 @@
+/* The Shows only: compact editorial copy + clear concert-format facts.
+   Static layout avoids adding reveal animations or late typography changes. */
+.shows-lineup {
+  padding-block: 2.75rem 2rem;
+}
+.shows-focus {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  border: 1px solid var(--ink);
+  margin-bottom: 3.5rem;
+  background: var(--white);
+}
+.shows-focus-copy {
+  min-width: 0;
+  padding: 2rem 2.5rem;
+}
+.shows-focus .preview-label {
+  font-size: 0.625rem;
+}
+.shows-focus .section-title {
+  font-size: clamp(2.5rem, 4.4vw, 4rem);
+  margin-block: 1rem;
+}
+.shows-focus-copy p {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+.shows-focus-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 44px;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-bottom: 2px solid var(--pink);
+}
+.shows-focus-link:hover {
+  border-bottom-color: var(--ink);
+}
+.shows-focus-facts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0.5rem 2rem;
+  background: var(--ink);
+  color: var(--white);
+}
+.shows-focus-facts > div {
+  padding-block: 1.25rem;
+}
+.shows-focus-facts > div + div {
+  border-top: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+}
+.shows-focus-facts dt {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.shows-focus-facts dt span {
+  color: var(--lime);
+  font: 700 1.5rem/1 var(--font-display);
+}
+.shows-focus-facts dd {
+  margin: 0.375rem 0 0;
+  font-size: 0.875rem;
+}
+@media (max-width: 800px) {
+  .shows-focus {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .shows-focus-copy {
+    padding: 1.5rem;
+  }
+  .shows-focus-facts {
+    padding-inline: 1.5rem;
+  }
+}

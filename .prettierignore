@@ -1,0 +1,6 @@
+# Third-party library and immutable database history are not application source.
+js/vendor/
+supabase/
+assets/
+tests/artifacts/
+node_modules/

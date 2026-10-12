@@ -1,0 +1,417 @@
+/* Night venue artwork is decorative. Real prices and accessible controls are HTML. */
+.booking-map.booking-map--night {
+  --zone-vip: #ff278a;
+  --zone-festa: #dcfa38;
+  --zone-festb: #22d7ed;
+  --zone-cat1: #bb7aff;
+  --zone-cat2: #f3dfbf;
+  container: venue-map / inline-size;
+  padding: clamp(16px, 2.5vw, 30px);
+  margin: 0 0 24px;
+  border: 1px solid #36333e;
+  background: #0b0b10;
+  color: #faf7f2;
+}
+
+.booking-map--night .booking-map-head {
+  gap: 16px;
+  border-color: #36333e;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.booking-map--night .preview-label {
+  color: #ff65a5;
+}
+.booking-map--night .preview-label::before {
+  background: currentColor;
+}
+.booking-map--night .booking-map-head h3 {
+  font-size: clamp(25px, 3vw, 40px);
+  margin: 8px 0 0;
+  color: #faf7f2;
+}
+.booking-map--night .booking-map-key {
+  color: #c3becb;
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+}
+.booking-map-layout {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Coordinates are tied to the 3:2 artwork, never viewport pixel positions. */
+.booking-map.booking-map--night .booking-map-stadium {
+  aspect-ratio: 3 / 2;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #36333e;
+  background: #101018 url('../assets/images/venue/gbk-concert-map-night-v3.png') center / 100% 100%
+    no-repeat;
+}
+.booking-map--night .booking-map-stadium::before {
+  display: none;
+}
+.booking-map--night .booking-map-stage {
+  left: 39%;
+  top: 16%;
+  width: 22%;
+  padding: 5px 3px;
+  color: white;
+  background: #08080dde;
+  border: 1px solid #ffffff55;
+  border-radius: 3px;
+  box-shadow: none;
+  font-size: clamp(8px, 1.7cqw, 15px);
+}
+.booking-map.booking-map--night .booking-map-zone {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12%;
+  width: 16%;
+  min-height: 0;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  clip-path: none;
+  transform: none;
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  font: 800 clamp(7px, 1.7cqw, 14px) / 1.25 var(--font-body);
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease;
+}
+.booking-map--night .booking-map-zone span {
+  padding: 4px 6px;
+  background: #08080ded;
+  border: 1px solid #ffffff5c;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+}
+.booking-map.booking-map--night .booking-map-zone.zone-left {
+  left: 33%;
+  right: auto;
+}
+.booking-map.booking-map--night .booking-map-zone.zone-right {
+  left: auto;
+  right: 33%;
+}
+.booking-map.booking-map--night .booking-map-zone.vip {
+  top: 25%;
+}
+.booking-map.booking-map--night .booking-map-zone.festa {
+  top: 37%;
+}
+.booking-map.booking-map--night .booking-map-zone.festb {
+  top: 50%;
+}
+.booking-map.booking-map--night .booking-map-zone.cat1 {
+  top: 32%;
+  height: 27%;
+  width: 10%;
+}
+.booking-map.booking-map--night .booking-map-zone.cat1.zone-left {
+  left: 21%;
+}
+.booking-map.booking-map--night .booking-map-zone.cat1.zone-right {
+  right: 21%;
+}
+.booking-map.booking-map--night .booking-map-zone.cat2 {
+  left: 34%;
+  top: 71%;
+  width: 32%;
+  height: 9%;
+}
+.booking-map--night .vip {
+  --zone-color: var(--zone-vip);
+}
+.booking-map--night .festa {
+  --zone-color: var(--zone-festa);
+}
+.booking-map--night .festb {
+  --zone-color: var(--zone-festb);
+}
+.booking-map--night .cat1 {
+  --zone-color: var(--zone-cat1);
+}
+.booking-map--night .cat2 {
+  --zone-color: var(--zone-cat2);
+}
+.booking-map.booking-map--night .booking-map-zone:is(:hover, .is-active, :focus-visible) {
+  outline: 2px solid var(--zone-color);
+  outline-offset: -2px;
+  border-color: var(--zone-color);
+  background: #08080d66;
+  filter: none;
+  box-shadow: none;
+}
+.booking-map.booking-map--night .booking-map-zone:is(:disabled, [aria-disabled='true']) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.booking-map.booking-map--night .booking-map-zone:disabled span::after {
+  display: none;
+}
+
+.booking-map--night .booking-map-legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #36333e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.booking-map--night .booking-map-legend-zone {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 14px;
+  align-items: center;
+  gap: 12px;
+  min-height: 112px;
+  padding: 18px;
+  border: 0;
+  border-bottom: 1px solid #36333e;
+  background: #111117;
+  text-align: left;
+  color: #faf7f2;
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 140ms ease;
+}
+.booking-map--night .booking-map-legend-zone > i {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--zone-color);
+}
+.booking-map--night .booking-map-legend-zone > span:not(.booking-map-arrow) {
+  display: block;
+  min-width: 0;
+}
+.booking-map--night .booking-map-legend-zone b {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #faf7f2;
+  overflow-wrap: anywhere;
+}
+.booking-map--night .booking-map-legend-zone small {
+  display: block;
+  color: #bdb8c5;
+  font-size: 11px;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+.booking-map--night .booking-map-price {
+  display: block;
+  margin-top: 7px;
+  color: var(--zone-color);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+.booking-map--night .booking-map-arrow {
+  display: block;
+  color: #bdb8c5;
+  font-size: 18px;
+}
+.booking-map--night .booking-map-legend-zone:is(:hover, .is-active, :focus-visible) {
+  background: #212029;
+  outline: 2px solid var(--zone-color);
+  outline-offset: -3px;
+}
+.booking-map--night .booking-map-legend-zone:is(:disabled, [aria-disabled='true']) {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.booking-map--night .booking-map-note {
+  display: block;
+  color: #bdb8c5;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 18px 0 0;
+}
+.booking-map-empty {
+  grid-column: 1 / -1;
+  padding: 20px;
+  color: #bdb8c5;
+}
+@container venue-map (min-width: 960px) {
+  .booking-map-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+  }
+  .booking-map--night .booking-map-legend {
+    grid-template-columns: 1fr;
+  }
+  .booking-map--night .booking-map-legend-zone {
+    min-height: 104px;
+  }
+}
+@container venue-map (max-width: 480px) {
+  .booking-map--night .booking-map-legend {
+    grid-template-columns: 1fr;
+  }
+  .booking-map--night .booking-map-legend-zone {
+    min-height: 100px;
+  }
+  .booking-map--night .booking-map-head {
+    flex-wrap: wrap;
+  }
+  .booking-map--night .booking-map-key {
+    text-align: left;
+    font-size: 9px;
+  }
+  .booking-map--night .booking-map-zone span {
+    padding: 2px;
+  }
+}
+
+/* Homepage editorial frame. Existing cream page and booking summary are unchanged. */
+.venue-feature.venue-feature--night {
+  background: #0b0b10;
+  border-color: #36333e;
+  color: #faf7f2;
+}
+.venue-feature--night .venue-feature-main {
+  display: block;
+  min-height: 0;
+}
+.venue-feature--night .venue-feature-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: 32px;
+  padding: clamp(24px, 4vw, 50px);
+  background: #0b0b10;
+  border-bottom: 1px solid #36333e;
+}
+.venue-feature--night .venue-feature-copy .preview-label {
+  color: #ff65a5;
+}
+.venue-feature--night .venue-feature-copy .preview-label::before {
+  background: currentColor;
+}
+.venue-feature--night .venue-feature-copy h2 {
+  font: 900 clamp(35px, 4.5vw, 64px) / 1.02 var(--font-display);
+  margin: 18px 0 0;
+  letter-spacing: -0.04em;
+  color: #faf7f2;
+}
+.venue-feature--night .venue-feature-copy h2 em {
+  color: #ff278a;
+  font-style: normal;
+}
+.venue-feature--night .venue-feature-copy p {
+  max-width: 460px;
+  margin: 0 0 20px;
+  color: #c3becb;
+  font-size: 15px;
+}
+.venue-feature--night .venue-feature-copy .btn {
+  color: #0b0b10;
+  background: #ff65a5;
+  box-shadow: none;
+}
+.venue-feature--night .venue-feature-map {
+  display: block;
+  padding: clamp(16px, 2.5vw, 30px);
+}
+.venue-feature--night .venue-feature-map .booking-map {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+.venue-feature--night .venue-feature-map .booking-map-head {
+  display: flex;
+}
+.venue-feature--night .venue-feature-map .booking-map-legend {
+  display: grid;
+}
+.venue-feature--night .venue-feature-map .booking-map-note {
+  display: block;
+}
+.venue-feature--night .venue-feature-map .booking-map-diagram {
+  min-height: 0;
+}
+.venue-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.venue-night-picker {
+  display: grid;
+  gap: 7px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+.venue-night-picker select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 10px 38px 10px 12px;
+  border: 1px solid #696273;
+  border-radius: 3px;
+  background: #111117;
+  color: #faf7f2;
+  font: 700 14px var(--font-body);
+  color-scheme: dark;
+}
+.venue-night-picker select:focus-visible {
+  outline: 2px solid #ff65a5;
+  outline-offset: 3px;
+}
+.venue-price-message {
+  min-height: 20px;
+  margin: 10px 0;
+  font-size: 12px;
+}
+.venue-price-retry {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid currentColor;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+.venue-price-retry[hidden] {
+  display: none;
+}
+.venue-feature--night .venue-price-message {
+  color: #c3becb;
+}
+.guide-venue {
+  padding-top: 10px;
+}
+@media (max-width: 650px) {
+  .venue-feature--night .venue-feature-copy {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .venue-feature--night .venue-feature-copy h2 {
+    font-size: clamp(36px, 10vw, 58px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .booking-map--night .booking-map-zone,
+  .booking-map--night .booking-map-legend-zone {
+    transition: none;
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id" data-page-pending>
+  <head>
+    <!-- Login: metadata halaman. Isi UI dirender oleh js/preview.js dan js/live/app.js. -->
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f0e7" />
+    <meta
+      name="description"
+      content="NADAKITA LIVE — Three nights. One city. Explore the artists, show guide, and ticket zones."
+    />
+    <title>Login — NADAKITA LIVE</title>
+    <link rel="preload" href="assets/fonts/dm-sans-400.ttf" as="font" type="font/ttf" crossorigin />
+    <!-- Font lokal disiapkan sebelum reveal agar teks tidak bergeser saat navigasi. -->
+    <link rel="preload" href="assets/fonts/outfit-700.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="css/preview.css" />
+    <!-- Pertahankan urutan stylesheet: base, refinement, lalu integrasi live/fitur halaman. -->
+    <link rel="stylesheet" href="css/type-refinement.css" />
+    <link rel="stylesheet" href="css/live.css" />
+    <script defer src="js/preview.js"></script>
+    <script defer src="js/navigation.js"></script>
+    <script defer src="js/song-previews.js"></script>
+    <script type="module" src="js/live/app.js"></script>
+  </head>
+  <body data-page="login">
+    <div id="app"></div>
+    <!-- Shell, main-content, dan handler dibuat oleh script; noscript adalah fallback tanpa JS. -->
+    <noscript>Aktifkan JavaScript untuk membuka NADAKITA LIVE.</noscript>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>NADAKITA LIVE</title>
+  <rect width="64" height="64" rx="12" fill="#19191a" />
+  <path d="M12 50V20H21L36 39V20H45V50H36L21 31V50Z" fill="#f6f0e7" />
+  <path d="M49 4L52.1 11H60L54 16L56 24L49 19L42 24L44 16L38 11H46Z" fill="#ff4ca7" />
+</svg>

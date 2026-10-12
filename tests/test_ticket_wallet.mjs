@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {ticketModel,renderTicket,renderOrderItems,ticketFilename} from '../js/live/ticket-wallet.js';
+const order={id:'order-1',status:'confirmed_demo',shows:{title:'The Weeknd — Night 01',show_date:'2026-11-20',venues:{name:'Stadion Utama GBK',city:'Jakarta'}}};
+const ticket={id:'ticket-1',code:'NK-1234',attendee_name:'Sari <script>',ticket_categories:{name:'VIP EXPERIENCE'},checkins:[]};
+assert.equal(ticketModel(order,ticket).venue,'Stadion Utama GBK · Jakarta');
+assert.equal(ticketModel(order,ticket).checkedIn,false);
+assert.match(renderTicket(order,ticket),/Sari &lt;script&gt;/);
+assert.match(renderTicket(order,ticket),/data-download-ticket="ticket-1"/);
+assert.match(renderTicket(order,ticket),/SIMULATION/);
+assert.equal(renderTicket({...order,status:'cancelled'},ticket),'');
+assert.equal(renderTicket({...order,status:'under_review'},ticket),'');
+assert.equal(renderTicket(order,{...ticket,code:''}),'');
+assert.equal(ticketModel(order,{...ticket,checkins:[{id:'checkin'}]}).checkedIn,true);
+assert.equal(ticketFilename({...ticket,code:'../NK:1234'}),'nadakita-NK-1234.png');
+assert.match(renderOrderItems({...order,order_items:[{quantity:2,ticket_categories:{name:'CAT <1>'}}]}),/2 × CAT &lt;1&gt;/);
+assert.equal(renderOrderItems(order),'');
+console.log('PASS ticket wallet eligibility, escaping, metadata, check-in and filename');

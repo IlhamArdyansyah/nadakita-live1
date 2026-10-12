@@ -1,0 +1,180 @@
+/* Shared poster lineup on Home and The Shows. */
+.show-grid {
+  gap: 20px;
+}
+.lineup-card {
+  padding: 8px;
+  background: var(--paper);
+  --night-color: #d91548;
+}
+.lineup-card.blue {
+  --night-color: #4535d8;
+}
+.lineup-card.gold {
+  --night-color: #a84f00;
+}
+.lineup-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+.lineup-art {
+  aspect-ratio: 8 / 7;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+.lineup-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.lineup-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+.lineup-photo[hidden] {
+  display: none;
+}
+.lineup-art:has(.lineup-photo:not([hidden]))::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#0009, transparent 35%);
+  pointer-events: none;
+}
+.lineup-art:has(.lineup-photo:not([hidden])) .lineup-art-label {
+  color: #fff;
+  z-index: 1;
+}
+.lineup-art-label {
+  position: absolute;
+  inset: 16px 16px auto;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font: 700 9px/1.5 var(--font-body);
+  letter-spacing: 0.2em;
+}
+.lineup-art-label > :last-child {
+  text-align: right;
+}
+.blue .lineup-art-label {
+  color: #3024b7;
+}
+.lineup-card .show-card-body {
+  padding: 16px 12px 12px;
+  gap: 12px;
+}
+.lineup-card-date {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 10px/1.4 var(--font-body);
+  letter-spacing: 0.12em;
+}
+.lineup-card-date > span {
+  color: var(--night-color);
+  white-space: nowrap;
+}
+.lineup-card-date i {
+  height: 1px;
+  background: var(--stroke);
+  flex: 1;
+}
+.lineup-card-date time {
+  white-space: nowrap;
+  font-size: 9px;
+}
+.lineup-card .show-card-body h3 {
+  font:
+    900 clamp(40px, 4.5vw, 68px) / 0.94 Impact,
+    'Arial Narrow',
+    var(--font-display),
+    sans-serif;
+  letter-spacing: -0.035em;
+  max-width: 8ch;
+  min-height: 1.88em;
+  overflow-wrap: normal;
+}
+.lineup-card .mini-divider {
+  width: 40px;
+  height: 1px;
+}
+.lineup-card .show-card-body p {
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+.lineup-card .show-card-body .btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px;
+  background: var(--ink);
+  color: var(--white);
+  border: 1px solid var(--ink);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.lineup-card .show-card-body .btn:hover {
+  background: var(--pink);
+  color: var(--ink);
+}
+.lineup-card .btn span {
+  font-size: 20px;
+  line-height: 1;
+}
+body[data-page='home'] .section:has(> .show-grid) .section-head {
+  align-items: end;
+  gap: 24px;
+}
+body[data-page='home'] .section:has(> .show-grid) .section-title {
+  font:
+    900 clamp(48px, 7.8vw, 112px) / 0.95 Impact,
+    'Arial Narrow',
+    var(--font-display),
+    sans-serif;
+  letter-spacing: -0.035em;
+}
+body[data-page='home'] .section:has(> .show-grid) .section-title br {
+  display: none;
+}
+body[data-page='home'] .section:has(> .show-grid) .section-title .accent {
+  color: var(--ink);
+}
+body[data-page='home'] .section:has(> .show-grid) .section-title .accent::before {
+  content: ' ';
+  white-space: pre;
+}
+body[data-page='home'] .section:has(> .show-grid) .section-copy {
+  max-width: 24ch;
+  font-size: 12px;
+}
+@media (max-width: 800px) {
+  .show-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .lineup-card {
+    width: 100%;
+    max-width: 480px;
+    justify-self: center;
+  }
+  .lineup-card .show-card-body h3 {
+    font-size: clamp(46px, 10vw, 68px);
+  }
+  body[data-page='home'] .section:has(> .show-grid) .section-head {
+    display: block;
+  }
+  body[data-page='home'] .section:has(> .show-grid) .section-copy {
+    max-width: 42ch;
+    margin-top: 16px;
+  }
+}

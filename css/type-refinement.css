@@ -1,0 +1,719 @@
+/* ===========================================================
+   NADAKITA LIVE — TYPOGRAPHY & INTERACTION REFINEMENT (V2)
+   The design system deliberately retains the original color,
+   layout and editorial spirit. Uses bundled local fonts.
+   If Google Fonts is unavailable, accessible system fallbacks
+   ensure the site still works in Live Server or offline.
+   =========================================================== */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: block;
+  src: url('../assets/fonts/dm-sans-400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: block;
+  src: url('../assets/fonts/dm-sans-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500 750;
+  font-display: block;
+  src: url('../assets/fonts/outfit-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 800 900;
+  font-display: block;
+  src: url('../assets/fonts/outfit-800.ttf') format('truetype');
+}
+
+:root {
+  --font-body: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Outfit', 'Arial Black', 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+/* A strong poster identity without condensed/cramped letterforms. */
+.logo,
+.footer-title,
+.about-logo .logo-title,
+.about-logo .logo-sub {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.logo {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.logo small {
+  font-family: var(--font-body);
+  font-size: 9px;
+  line-height: 1.45;
+  letter-spacing: 0.12em;
+  font-weight: 750;
+  margin-top: 6px;
+}
+.footer-title {
+  font-size: 36px;
+}
+.about-logo .logo-title {
+  font-size: clamp(48px, 7.5vw, 92px);
+}
+.about-logo .logo-sub {
+  font-size: 26px;
+  letter-spacing: 0.16em;
+  margin-top: 6px;
+}
+
+.page-title,
+.section-title,
+.hero h1,
+.hero-art .overlay-word,
+.poster-artist,
+.show-card-body h3,
+.experience-graphic .giant,
+.experience-copy h2,
+.detail-copy h1,
+.side-panel h3,
+.ticket-option .type,
+.summary h3,
+.summary-total strong,
+.paper-panel h2,
+.auth-banner h2,
+.auth-form h1,
+.account-sidebar h3,
+.stat-card strong,
+.wallet-ticket .mini-poster,
+.wallet-ticket .detail h3,
+.admin-head h1,
+.stats-strip strong {
+  font-family: var(--font-display);
+  font-weight: 750;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.page-title {
+  font-size: clamp(46px, 7.4vw, 104px);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  overflow-wrap: break-word;
+}
+.section-title {
+  font-size: clamp(38px, 5.8vw, 76px);
+  line-height: 1.05;
+}
+.hero h1 {
+  font-size: clamp(68px, 8.3vw, 116px);
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+  margin-block: 28px 29px;
+}
+.hero-art .overlay-word {
+  font-size: clamp(46px, 6vw, 86px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  transform: rotate(-9deg);
+  text-shadow: 4px 5px 0 #121212;
+}
+.stats-strip strong {
+  font-size: 47px;
+  line-height: 1.03;
+}
+.poster-artist {
+  font-size: clamp(45px, 4.6vw, 72px);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+.show-card-body h3 {
+  font-size: 28px;
+  line-height: 1.12;
+}
+.experience-graphic .giant {
+  font-size: clamp(68px, 11vw, 156px);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+.experience-copy h2 {
+  font-size: clamp(40px, 5.8vw, 72px);
+  line-height: 1.03;
+}
+.detail-copy h1 {
+  font-size: clamp(58px, 7.9vw, 112px);
+  line-height: 1.01;
+  overflow-wrap: anywhere;
+}
+.detail-poster .poster-artist {
+  font-size: clamp(50px, 7.1vw, 92px);
+}
+.side-panel h3 {
+  font-size: 24px;
+}
+.ticket-option .type {
+  display: block;
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.15;
+}
+.ticket-option p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+.ticket-option .small-print {
+  font-size: 12px;
+}
+.price {
+  font-size: 20px;
+  font-weight: 800;
+}
+.summary h3 {
+  font-size: 31px;
+}
+.summary-total strong {
+  font-size: 30px;
+}
+.paper-panel h2 {
+  font-size: 30px;
+}
+.auth-banner h2 {
+  font-size: clamp(52px, 6vw, 82px);
+  line-height: 1.02;
+}
+.auth-form h1 {
+  font-size: clamp(37px, 4vw, 50px);
+}
+.account-sidebar h3 {
+  font-size: 25px;
+}
+.stat-card strong {
+  font-size: 48px;
+}
+.wallet-ticket .mini-poster {
+  font-size: 26px;
+}
+.wallet-ticket .detail h3 {
+  font-size: 28px;
+}
+.admin-head h1 {
+  font-size: clamp(38px, 4.5vw, 58px);
+  overflow-wrap: anywhere;
+}
+
+/* Controls use words for affordance; no repeated decorative arrows. */
+.btn,
+.header-cta,
+.nav,
+.tab,
+.side-links a,
+.show-selector a {
+  font-family: var(--font-body);
+  font-weight: 750;
+  letter-spacing: 0.015em;
+}
+.btn {
+  font-size: 13px;
+  gap: 8px;
+  line-height: 1.4;
+  text-align: center;
+}
+.btn.small {
+  font-size: 12px;
+}
+.header-cta {
+  font-size: 12px;
+}
+.preview-label {
+  font-family: var(--font-body);
+  letter-spacing: 0.13em;
+  font-weight: 800;
+}
+.micro {
+  letter-spacing: 0.1em;
+}
+.section-copy,
+.page-lead {
+  line-height: 1.65;
+}
+.time-row {
+  grid-template-columns: minmax(140px, 24%) minmax(0, 1fr);
+}
+.time-row > div:first-child {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  line-height: 1.45;
+  padding: 21px 14px;
+  white-space: nowrap;
+}
+.time-row > div:last-child {
+  min-width: 0;
+}
+.time-row h3 {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+.time-row p {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* Readable descriptions and admin tables. */
+.show-card-body p,
+.footer a,
+.small-print,
+.note,
+.wallet-ticket .detail .small-print {
+  line-height: 1.55;
+}
+.field label {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.field input,
+.field select,
+.field textarea {
+  font-size: 15px;
+}
+.table-wrap table {
+  font-size: 13px;
+}
+.table-wrap th {
+  font-size: 11px;
+  letter-spacing: 0.045em;
+}
+
+@media (max-width: 1050px) {
+  .hero h1 {
+    font-size: clamp(63px, 8.7vw, 94px);
+  }
+  .poster-artist {
+    font-size: clamp(43px, 5.1vw, 61px);
+  }
+}
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: clamp(66px, 10.7vw, 98px);
+  }
+  .hero-art .overlay-word {
+    font-size: clamp(50px, 9vw, 80px);
+  }
+  .detail-copy h1 {
+    font-size: clamp(54px, 11vw, 88px);
+  }
+}
+@media (max-width: 540px) {
+  body {
+    font-size: 15px;
+  }
+  .wrap {
+    width: calc(100% - 32px);
+  }
+  .logo {
+    font-size: 25px;
+  }
+  .page-title {
+    font-size: clamp(43px, 11vw, 67px);
+    line-height: 1.04;
+  }
+  .section-title {
+    font-size: clamp(37px, 10.1vw, 53px);
+  }
+  .hero h1 {
+    font-size: clamp(49px, 13.6vw, 74px);
+    line-height: 1.02;
+  }
+  .hero-art .overlay-word {
+    font-size: clamp(45px, 12vw, 64px);
+    line-height: 0.99;
+  }
+  .experience-copy h2 {
+    font-size: clamp(37px, 10.2vw, 53px);
+  }
+  .experience-graphic .giant {
+    font-size: clamp(70px, 18vw, 112px);
+  }
+  .stats-strip strong {
+    font-size: 35px;
+  }
+  .show-card-body h3 {
+    font-size: 26px;
+  }
+  .poster-artist {
+    font-size: clamp(45px, 11vw, 67px);
+  }
+  .detail-copy h1 {
+    font-size: clamp(46px, 12vw, 70px);
+  }
+  .ticket-option .type {
+    font-size: 22px;
+  }
+  .time-row {
+    grid-template-columns: minmax(116px, 37%) minmax(0, 1fr);
+  }
+  .time-row > div:first-child {
+    font-size: 11.5px;
+    padding: 17px 7px;
+    letter-spacing: -0.035em;
+  }
+  .time-row > div:last-child {
+    padding: 16px 11px;
+  }
+  .time-row h3 {
+    font-size: 14px;
+  }
+  .time-row p {
+    font-size: 12px;
+  }
+  .auth-banner h2 {
+    font-size: 51px;
+  }
+  .auth-form h1 {
+    font-size: 39px;
+  }
+  .wallet-ticket .mini-poster {
+    font-size: 28px;
+  }
+  .admin-head h1 {
+    font-size: clamp(35px, 9vw, 47px);
+  }
+  .about-logo .logo-title {
+    font-size: 61px;
+  }
+}
+.about-story {
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+.about-story .section-title {
+  font-size: clamp(36px, 4.6vw, 66px);
+  line-height: 1.04;
+  margin-bottom: 24px;
+}
+.about-story .page-lead {
+  font-size: 16px;
+}
+.about-values {
+  margin: 28px 0 32px;
+  border-top: 1px solid var(--stroke);
+}
+.about-values > div {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--stroke);
+}
+.about-values > div > span {
+  color: #a90057;
+  font-size: 11px;
+  font-weight: 800;
+  padding-top: 3px;
+}
+.about-values h3 {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  margin: 0 0 5px;
+}
+.about-values p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.about-atmosphere {
+  position: relative;
+  align-self: stretch;
+  margin: 0;
+  min-width: 0;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+.about-atmosphere img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
+}
+.about-image-brand {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+.about-image-brand > span {
+  color: var(--pink);
+}
+.about-image-brand small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  margin-top: 6px;
+}
+.about-atmosphere figcaption {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: white;
+  background: #19191a;
+  padding: 7px 10px;
+}
+@media (max-width: 800px) {
+  .about-atmosphere {
+    min-height: 0;
+    aspect-ratio: 4/5;
+  }
+  .about-story .section-title {
+    font-size: clamp(36px, 7vw, 56px);
+  }
+}
+/* Browser-native page transitions preserve ordinary links and browser history. */
+@view-transition {
+  navigation: none;
+}
+html[data-page-pending] #main-content,
+html[data-page-pending] .footer {
+  opacity: 0;
+}
+html[data-page-pending]::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--pink);
+  z-index: 500;
+  animation: navigation-loading 1s ease-in-out infinite;
+}
+html[data-page-ready] #main-content {
+  animation: content-ready 0.16s ease-out both;
+}
+html[data-page-ready] .footer {
+  opacity: 1;
+}
+@keyframes content-ready {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes navigation-loading {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-page-ready] #main-content,
+  html[data-page-pending]::after {
+    animation: none;
+  }
+}
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.show-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+.artist-preview-trigger {
+  display: block;
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: var(--ink);
+  color: white;
+  text-align: left;
+}
+.artist-preview-badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4;
+  background: var(--ink);
+  color: white;
+  padding: 9px 12px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  border: 1px solid #ffffff70;
+}
+.artist-preview-trigger:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: -3px;
+}
+.song-preview-dialog {
+  width: min(460px, calc(100% - 32px));
+  padding: 32px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  max-height: calc(100dvh - 40px);
+  overflow: auto;
+}
+.song-preview-dialog::backdrop {
+  background: #101013ba;
+}
+.song-preview-dialog h2 {
+  font: 800 36px/1.1 var(--font-display);
+  margin: 24px 0 10px;
+}
+.song-preview-dialog audio {
+  width: 100%;
+  margin: 12px 0;
+}
+.song-preview-dialog audio[hidden] {
+  display: none;
+}
+.song-preview-close {
+  display: block;
+  margin: 0 0 20px auto;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid var(--ink);
+  font-size: 26px;
+}
+.song-preview-dialog [role='status'] {
+  font-size: 13px;
+  margin: 15px 0 24px;
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+.artist-card-link {
+  display: block;
+}
+.show-loading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 41%;
+  gap: 30px;
+  min-height: 560px;
+  padding-block: 40px;
+}
+.show-loading-copy {
+  align-self: center;
+  height: 290px;
+  background: linear-gradient(
+    var(--stroke) 0 24%,
+    transparent 24% 34%,
+    var(--stroke) 34% 40%,
+    transparent 40% 55%,
+    var(--stroke) 55% 58%,
+    transparent 58% 70%,
+    var(--stroke) 70% 73%,
+    transparent 73%
+  );
+  opacity: 0.35;
+}
+.show-loading-photo {
+  background: #e7e1d8;
+  border: 1px solid var(--stroke);
+}
+.sr-loading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.show-song-player {
+  width: 100%;
+  max-width: 460px;
+  border-top: 1px solid var(--stroke);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.song-track-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.show-song-player audio {
+  width: 100%;
+  display: block;
+}
+.show-song-player audio[hidden] {
+  display: none;
+}
+.song-track-status {
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 800px) {
+  .show-loading {
+    grid-template-columns: 1fr;
+    min-height: 650px;
+  }
+  .show-loading-photo {
+    min-height: 320px;
+  }
+}
+@media (max-width: 345px) {
+  .hero h1 {
+    font-size: 45px;
+  }
+  .page-title {
+    font-size: 40px;
+  }
+  .time-row {
+    grid-template-columns: 116px minmax(0, 1fr);
+  }
+  .time-row > div:first-child {
+    font-size: 11px;
+    padding-inline: 6px;
+  }
+  .time-row > div:last-child {
+    padding-inline: 9px;
+  }
+}

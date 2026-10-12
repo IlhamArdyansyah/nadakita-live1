@@ -1,0 +1,21 @@
+-- Apply after 002_operations.sql; prevents anonymous invocation of privileged RPCs.
+revoke execute on function public.bootstrap_profile() from public,anon,authenticated;
+revoke execute on function public.prevent_oversold_capacity() from public,anon,authenticated;
+revoke execute on function public.create_demo_reservation(uuid,jsonb,jsonb,text) from public,anon;
+revoke execute on function public.confirm_demo_order(uuid) from public,anon;
+revoke execute on function public.cancel_demo_order(uuid) from public,anon;
+revoke execute on function public.admin_inspect_ticket(text,uuid,boolean) from public,anon;
+revoke execute on function public.admin_stats() from public,anon;
+revoke execute on function public.admin_manage_category(uuid,integer,bigint,boolean) from public,anon;
+revoke execute on function public.admin_reconcile_expirations() from public,anon;
+revoke execute on function public.get_stock() from public;
+revoke execute on function public.is_admin() from public;
+grant execute on function public.get_stock() to anon,authenticated;
+grant execute on function public.is_admin() to anon,authenticated;
+grant execute on function public.create_demo_reservation(uuid,jsonb,jsonb,text) to authenticated;
+grant execute on function public.confirm_demo_order(uuid) to authenticated;
+grant execute on function public.cancel_demo_order(uuid) to authenticated;
+grant execute on function public.admin_inspect_ticket(text,uuid,boolean) to authenticated;
+grant execute on function public.admin_stats() to authenticated;
+grant execute on function public.admin_manage_category(uuid,integer,bigint,boolean) to authenticated;
+grant execute on function public.admin_reconcile_expirations() to authenticated;

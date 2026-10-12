@@ -1,0 +1,19 @@
+# Keep local secrets and private exports out of source control.
+.env
+.env.*
+!*.example
+node_modules/
+.chrome-audit-*/
+.pytest_cache/
+__pycache__/
+.DS_Store
+*.sqlite*
+*.pem
+*.key
+supabase/.branches/
+supabase/.profiles/
+supabase/.temp/
+private-data/
+
+# Generated QA screenshots; keep test scripts and reports in source control.
+tests/**/*.png
